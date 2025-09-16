@@ -1,6 +1,0 @@
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.csproj.AssemblyReference.cache
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.AssemblyInfoInputs.cache
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.AssemblyInfo.cs
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.csproj.CoreCompileInputs.cache
-C:\Users\Dima\source\repos\Computer_Parts_Store\obj\Debug\net6.0\Computer_Parts_Store.sourcelink.json
