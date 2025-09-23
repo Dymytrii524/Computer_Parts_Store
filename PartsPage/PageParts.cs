@@ -139,6 +139,17 @@ namespace PartsPage
                 priceMax.Value = 0;
             }
         }
+        private void listView1_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 2)
+                btnCompare.Enabled = true;
+            else
+                btnCompare.Enabled = false;
+        }
+        private void btnCompare_Click(object sender, EventArgs e)
+        {
+
+        }
         private void ProductSearch()
         {
             try

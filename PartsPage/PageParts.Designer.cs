@@ -45,6 +45,7 @@
             priceMax = new NumericUpDown();
             price = new CheckBox();
             sqlConnection1 = new Microsoft.Data.SqlClient.SqlConnection();
+            btnCompare = new Button();
             ((System.ComponentModel.ISupportInitialize)priceMin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)priceMax).BeginInit();
             SuspendLayout();
@@ -59,6 +60,7 @@
             listView1.Size = new Size(1880, 928);
             listView1.TabIndex = 0;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.SelectedIndexChanged += listView1_Click;
             // 
             // button1
             // 
@@ -231,12 +233,24 @@
             // 
             sqlConnection1.FireInfoMessageEventOnUserErrors = false;
             // 
+            // btnCompare
+            // 
+            btnCompare.Enabled = false;
+            btnCompare.Location = new Point(1023, 28);
+            btnCompare.Name = "btnCompare";
+            btnCompare.Size = new Size(143, 42);
+            btnCompare.TabIndex = 18;
+            btnCompare.Text = "Compare";
+            btnCompare.UseVisualStyleBackColor = true;
+            btnCompare.Click += btnCompare_Click;
+            // 
             // PageParts
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(1334, 582);
+            Controls.Add(btnCompare);
             Controls.Add(price);
             Controls.Add(priceMax);
             Controls.Add(priceMin);
@@ -283,5 +297,6 @@
         private NumericUpDown priceMax;
         private CheckBox price;
         private Microsoft.Data.SqlClient.SqlConnection sqlConnection1;
+        private Button btnCompare;
     }
 }
