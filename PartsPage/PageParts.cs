@@ -113,6 +113,32 @@ namespace PartsPage
         {
             ProductSearch();
         }
+        private void CheckedChanged(object sender, EventArgs e)
+        {
+            ProductSearch();
+        }
+        private void PriceChanged(object sender, EventArgs e)
+        {
+            if (priceMin.Value > priceMax.Value)
+                priceMax.Value = priceMin.Value;
+            ProductSearch();
+        }
+
+        private void price_CheckedChanged(object sender, EventArgs e)
+        {
+            if (price.Checked)
+            {
+                priceMin.Enabled = true;
+                priceMax.Enabled = true;
+            }
+            else
+            {
+                priceMin.Enabled = false;
+                priceMax.Enabled = false;
+                priceMin.Value = 0;
+                priceMax.Value = 0;
+            }
+        }
         private void ProductSearch()
         {
             try
@@ -126,15 +152,20 @@ namespace PartsPage
                     if (!string.IsNullOrEmpty(searchText))
                     {
                         query = query.Where(p =>
-                            (p.Name.Contains(searchText)) ||
-                            (p.Description != null && p.Description.Contains(searchText)) ||
-                            (p.Manufacturer != null && p.Manufacturer.Contains(searchText)) ||
-                            (p.Model != null && p.Model.Contains(searchText)) ||
-                            (p.Category != null && p.Category.Name.Contains(searchText)) ||
-                            (p.Article != null && p.Article.Contains(searchText)) ||
-                            (p.Specification != null && p.Specification.Contains(searchText)) ||
-                            (p.Color != null && p.Color.Contains(searchText))
+                            (name.Checked && p.Name.Contains(searchText)) ||
+                            (desc.Checked && p.Description != null && p.Description.Contains(searchText)) ||
+                            (manufacturer.Checked && p.Manufacturer != null && p.Manufacturer.Contains(searchText)) ||
+                            (model.Checked && p.Model != null && p.Model.Contains(searchText)) ||
+                            (category.Checked && p.Category != null && p.Category.Name.Contains(searchText)) ||
+                            (article.Checked && p.Article != null && p.Article.Contains(searchText)) ||
+                            (spec.Checked && p.Specification != null && p.Specification.Contains(searchText)) ||
+                            (color.Checked && p.Color != null && p.Color.Contains(searchText))
                         );
+                    }
+
+                    if (price.Checked)
+                    {
+                        query = query.Where(p => p.Price >= priceMin.Value && p.Price <= priceMax.Value);
                     }
 
                     ListLoad(query.ToList());
