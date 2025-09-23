@@ -1,20 +1,71 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Computer_Parts_Store.Models;
 
 namespace PartsPage
 {
     public partial class Compare : Form
     {
-        public Compare()
+        private readonly Product product1;
+        private readonly Product product2;
+
+        public Compare(Product p1, Product p2)
         {
             InitializeComponent();
+            product1 = p1;
+            product2 = p2;
+            InitializeComparison();
+        }
+
+        private void InitializeComparison()
+        {
+            Text = $"Comparing: {product1.Name} vs {product2.Name}";
+
+            comparisonGrid.Columns.Add("Property", "Property");
+            comparisonGrid.Columns.Add("Product1", product1.Name);
+            comparisonGrid.Columns.Add("Product2", product2.Name);
+
+            AddRow("Category", product1.Category?.Name, product2.Category?.Name);
+            AddRow("Article", product1.Article, product2.Article);
+            AddRow("Price", product1.Price.ToString("C"), product2.Price.ToString("C"));
+            AddRow("Description", product1.Description, product2.Description);
+            AddRow("Stock Quantity", product1.StockQuantity.ToString(), product2.StockQuantity.ToString());
+            AddRow("Manufacturer", product1.Manufacturer, product2.Manufacturer);
+            AddRow("Model", product1.Model, product2.Model);
+            AddRow("Specification", product1.Specification, product2.Specification);
+            AddRow("Color", product1.Color, product2.Color);
+            AddRow("Dimensions", product1.Dimensions, product2.Dimensions);
+            AddRow("Weight", product1.Weight?.ToString(), product2.Weight?.ToString());
+            AddRow("Warranty (Months)", product1.WarrantyMonths?.ToString(), product2.WarrantyMonths?.ToString());
+
+            Highlight();
+        }
+
+        private void AddRow(string property, string value1, string value2)
+        {
+            int id = comparisonGrid.Rows.Add(property, value1 ?? "N/A", value2 ?? "N/A");
+
+            comparisonGrid.Rows[id].Tag = new { Value1 = value1, Value2 = value2 };
+        }
+
+        private void Highlight()
+        {
+            foreach (DataGridViewRow row in comparisonGrid.Rows)
+            {
+                if (row.Tag != null)
+                {
+                    var values = (dynamic)row.Tag;
+                    string value1 = values.Value1 ?? "";
+                    string value2 = values.Value2 ?? "";
+
+                    if (value1.Equals(value2, StringComparison.OrdinalIgnoreCase))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                }
+            }
         }
     }
 }
