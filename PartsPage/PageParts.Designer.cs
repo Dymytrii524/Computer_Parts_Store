@@ -56,6 +56,7 @@
             button1.Size = new Size(39, 38);
             button1.TabIndex = 1;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -66,6 +67,7 @@
             button2.Size = new Size(37, 38);
             button2.TabIndex = 2;
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -96,6 +98,7 @@
             ShowIcon = false;
             Text = "Parts Page";
             WindowState = FormWindowState.Maximized;
+            Load += PageParts_Load;
             ResumeLayout(false);
             PerformLayout();
         }
