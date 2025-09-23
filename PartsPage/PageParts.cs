@@ -148,7 +148,7 @@ namespace PartsPage
         }
         private void btnCompare_Click(object sender, EventArgs e)
         {
-
+            Compare();
         }
         private void ProductSearch()
         {
@@ -185,6 +185,50 @@ namespace PartsPage
             catch (Exception ex)
             {
                 MessageBox.Show($"Error searching data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Compare()
+        {
+            try
+            {
+                using (var context = new Computer_Parts_StoreContext())
+                {
+                    var i1 = listView1.SelectedItems[0];
+                    var i2 = listView1.SelectedItems[1];
+
+                    string productName1 = i1.Text;
+                    string productName2 = i2.Text;
+
+                    var product1 = context.Products
+                        .Include(p => p.Category)
+                        .FirstOrDefault(p => p.Name == productName1);
+
+                    var product2 = context.Products
+                        .Include(p => p.Category)
+                        .FirstOrDefault(p => p.Name == productName2);
+
+                    if (product1 == null || product2 == null)
+                    {
+                        MessageBox.Show("One or both selected products could not be found.", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (product1.Category?.Name != product2.Category?.Name)
+                    {
+                        MessageBox.Show("Cannot compare products from different categories.", "oops.",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    var compareForm = new Compare(product1, product2);
+                    compareForm.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error comparing products: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
