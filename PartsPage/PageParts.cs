@@ -1,6 +1,7 @@
-using Microsoft.EntityFrameworkCore;
 using Computer_Parts_Store.Data;
 using Computer_Parts_Store.Models;
+using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 
 namespace PartsPage
 {
@@ -108,5 +109,41 @@ namespace PartsPage
         }
         private void button1_Click(object sender, EventArgs e) => SetView(View.LargeIcon);
         private void button2_Click(object sender, EventArgs e) => SetView(View.Details);
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            ProductSearch();
+        }
+        private void ProductSearch()
+        {
+            try
+            {
+                string searchText = textBox1.Text.Trim();
+
+                using (var context = new Computer_Parts_StoreContext())
+                {
+                    var query = context.Products.Include(p => p.Category).AsQueryable();
+
+                    if (!string.IsNullOrEmpty(searchText))
+                    {
+                        query = query.Where(p =>
+                            (p.Name.Contains(searchText)) ||
+                            (p.Description != null && p.Description.Contains(searchText)) ||
+                            (p.Manufacturer != null && p.Manufacturer.Contains(searchText)) ||
+                            (p.Model != null && p.Model.Contains(searchText)) ||
+                            (p.Category != null && p.Category.Name.Contains(searchText)) ||
+                            (p.Article != null && p.Article.Contains(searchText)) ||
+                            (p.Specification != null && p.Specification.Contains(searchText)) ||
+                            (p.Color != null && p.Color.Contains(searchText))
+                        );
+                    }
+
+                    ListLoad(query.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error searching data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

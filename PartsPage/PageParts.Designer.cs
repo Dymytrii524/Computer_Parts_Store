@@ -31,6 +31,7 @@
             listView1 = new ListView();
             button1 = new Button();
             button2 = new Button();
+            textBox1 = new TextBox();
             label1 = new Label();
             sqlConnection1 = new Microsoft.Data.SqlClient.SqlConnection();
             SuspendLayout();
@@ -69,6 +70,14 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(110, 27);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(671, 23);
+            textBox1.TabIndex = 3;
+            textBox1.TextChanged += textBox1_TextChanged;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -91,6 +100,7 @@
             BackColor = Color.LightSteelBlue;
             ClientSize = new Size(1334, 582);
             Controls.Add(label1);
+            Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(listView1);
@@ -108,6 +118,7 @@
         private ListView listView1;
         private Button button1;
         private Button button2;
+        private TextBox textBox1;
         private Label label1;
         private Microsoft.Data.SqlClient.SqlConnection sqlConnection1;
     }
