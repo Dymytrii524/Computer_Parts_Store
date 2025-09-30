@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dima\\source\\repos\\Computer_Parts_Store\\Computer_Parts_Store\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D5CBE3BC-2983-4910-A0EF-EB863FB9F7D8}|Computer_Parts_Store\\Computer_Parts_Store.csproj|c:\\users\\dima\\source\\repos\\computer_parts_store\\computer_parts_store\\computer_parts_store\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D5CBE3BC-2983-4910-A0EF-EB863FB9F7D8}|Computer_Parts_Store\\Computer_Parts_Store.csproj|solutionrelative:computer_parts_store\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Dima\\source\\repos\\Computer_Parts_Store\\Computer_Parts_Store\\Computer_Parts_Store\\Form1.cs",
+              "RelativeDocumentMoniker": "Computer_Parts_Store\\Form1.cs",
+              "ToolTip": "C:\\Users\\Dima\\source\\repos\\Computer_Parts_Store\\Computer_Parts_Store\\Computer_Parts_Store\\Form1.cs [Design]",
+              "RelativeToolTip": "Computer_Parts_Store\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-28T06:55:48.038Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
