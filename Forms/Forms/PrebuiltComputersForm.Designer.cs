@@ -1,4 +1,4 @@
-﻿namespace Computer_Parts_Store_Client.Forms
+﻿namespace Computer_Parts_Store.Forms
 {
     partial class PrebuiltComputersForm
     {

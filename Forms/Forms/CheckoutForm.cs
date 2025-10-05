@@ -1,5 +1,4 @@
-﻿using Forms;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Computer_Parts_Store.Forms
@@ -15,9 +14,9 @@ namespace Computer_Parts_Store.Forms
 
         private void LoadOrderDetails()
         {
-            // Завантаження товарів з кошика
-            dataGridViewOrder.Rows.Add("Intel Core i5-12400F", "1", "8500.00", "8500.00");
-            dataGridViewOrder.Rows.Add("NVIDIA RTX 3060", "1", "12000.00", "12000.00");
+            // Додаємо дані як числа, а не як рядки
+            dataGridViewOrder.Rows.Add("Intel Core i5-12400F", 1, 8500.00m, 8500.00m);
+            dataGridViewOrder.Rows.Add("NVIDIA RTX 3060", 1, 12000.00m, 12000.00m);
 
             CalculateTotal();
         }
@@ -25,19 +24,28 @@ namespace Computer_Parts_Store.Forms
         private void CalculateTotal()
         {
             decimal total = 0;
+
             foreach (DataGridViewRow row in dataGridViewOrder.Rows)
             {
-                if (!row.IsNewRow)
+                if (!row.IsNewRow && row.Cells["colTotal"].Value != null)
                 {
-                    total += Convert.ToDecimal(row.Cells["colTotal"].Value);
+                    try
+                    {
+                        total += Convert.ToDecimal(row.Cells["colTotal"].Value);
+                    }
+                    catch
+                    {
+                        // Ігноруємо помилки конвертації
+                        continue;
+                    }
                 }
             }
+
             lblTotalAmountValue.Text = total.ToString("F2");
         }
 
-        private void btnConfirmOrder_Click(object sender, EventArgs e)
+        private void btnConfirmOrder_Click(object? sender, EventArgs e)
         {
-            // Перевірка заповнення обов'язкових полів
             if (string.IsNullOrWhiteSpace(txtLastName.Text))
             {
                 MessageBox.Show("Введіть прізвище!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -59,7 +67,6 @@ namespace Computer_Parts_Store.Forms
                 return;
             }
 
-            // Підтвердження замовлення
             DialogResult result = MessageBox.Show(
                 "Підтвердити замовлення?",
                 "Підтвердження",
@@ -68,10 +75,8 @@ namespace Computer_Parts_Store.Forms
 
             if (result == DialogResult.Yes)
             {
-                // Зберегти замовлення в базу даних
                 MessageBox.Show("Замовлення успішно оформлено!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Відкрити форму чеку
                 ReceiptForm receiptForm = new ReceiptForm();
                 receiptForm.ShowDialog();
 
@@ -79,7 +84,7 @@ namespace Computer_Parts_Store.Forms
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object? sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show(
                 "Скасувати оформлення замовлення?",
@@ -93,7 +98,7 @@ namespace Computer_Parts_Store.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object? sender, EventArgs e)
         {
             this.Close();
         }

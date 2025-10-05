@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Computer_Parts_Store_Client.Forms
+namespace Computer_Parts_Store.Forms
 {
     public partial class ReceiptForm : Form
     {
@@ -13,12 +13,10 @@ namespace Computer_Parts_Store_Client.Forms
 
         private void LoadReceiptData()
         {
-            // Завантаження даних замовлення
             lblOrderNumber.Text = "Замовлення № 000001";
             lblOrderDate.Text = $"Дата: {DateTime.Now:dd.MM.yyyy HH:mm:ss}";
             lblCustomer.Text = "Покупець: Іванов Іван Іванович";
 
-            // Додати товари
             dataGridViewItems.Rows.Add("Intel Core i5-12400F", "1", "8500.00", "8500.00");
             dataGridViewItems.Rows.Add("NVIDIA RTX 3060", "1", "12000.00", "12000.00");
 
@@ -40,12 +38,12 @@ namespace Computer_Parts_Store_Client.Forms
             lblTotal.Text = $"ВСЬОГО: {total:F2} грн";
         }
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void btnPrint_Click(object? sender, EventArgs e)
         {
             MessageBox.Show("Функція друку буде реалізована пізніше", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object? sender, EventArgs e)
         {
             SaveFileDialog saveDialog = new SaveFileDialog();
             saveDialog.Filter = "PDF files (*.pdf)|*.pdf";
@@ -57,7 +55,7 @@ namespace Computer_Parts_Store_Client.Forms
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object? sender, EventArgs e)
         {
             this.Close();
         }

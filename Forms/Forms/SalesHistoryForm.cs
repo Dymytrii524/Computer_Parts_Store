@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Computer_Parts_Store.Forms
 {
@@ -41,7 +42,20 @@ namespace Computer_Parts_Store.Forms
             {
                 if (!row.IsNewRow)
                 {
-                    totalRevenue += Convert.ToDecimal(row.Cells["colTotalAmount"].Value);
+                    string value = row.Cells["colTotalAmount"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(value))
+                    {
+                        if (decimal.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out decimal amount))
+                        {
+                            totalRevenue += amount;
+                        }
+                        else
+                        {
+                            // Логування помилки або обробка некоректних даних
+                            MessageBox.Show($"Некоректне значення суми: {value}", "Помилка",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
                 }
             }
 

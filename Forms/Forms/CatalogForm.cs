@@ -1,5 +1,4 @@
-﻿using Forms;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Computer_Parts_Store.Forms
@@ -30,16 +29,14 @@ namespace Computer_Parts_Store.Forms
         private void LoadProducts()
         {
             // Тут буде завантаження товарів з бази даних
-            // Поки що залишаємо порожнім
         }
 
-        private void btnApplyFilter_Click(object sender, EventArgs e)
+        private void btnApplyFilter_Click(object? sender, EventArgs e)
         {
-            // Логіка фільтрації товарів
             MessageBox.Show("Фільтр застосовано", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void btnClearFilter_Click(object sender, EventArgs e)
+        private void btnClearFilter_Click(object? sender, EventArgs e)
         {
             cmbCategory.SelectedIndex = 0;
             txtSearch.Clear();
@@ -48,31 +45,28 @@ namespace Computer_Parts_Store.Forms
             LoadProducts();
         }
 
-        private void btnCompare_Click(object sender, EventArgs e)
+        private void btnCompare_Click(object? sender, EventArgs e)
         {
-            // Відкрити форму порівняння товарів
             ProductCompareForm compareForm = new ProductCompareForm();
             compareForm.ShowDialog();
         }
 
-        private void dataGridViewProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewProducts_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            // Деталі товару
-            if (e.ColumnIndex == dataGridViewProducts.Columns["colDetails"].Index)
+            if (e.ColumnIndex == dataGridViewProducts.Columns["colDetails"]?.Index)
             {
                 ProductDetailsForm detailsForm = new ProductDetailsForm();
                 detailsForm.ShowDialog();
             }
-            // Додати до кошика
-            else if (e.ColumnIndex == dataGridViewProducts.Columns["colAddToCart"].Index)
+            else if (e.ColumnIndex == dataGridViewProducts.Columns["colAddToCart"]?.Index)
             {
                 MessageBox.Show("Товар додано до кошика!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click(object? sender, EventArgs e)
         {
             this.Close();
         }
