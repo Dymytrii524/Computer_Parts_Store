@@ -17,320 +17,272 @@
 
         private void InitializeComponent()
         {
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.panelFilters = new System.Windows.Forms.Panel();
-            this.lblFilters = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblPriceFrom = new System.Windows.Forms.Label();
-            this.txtPriceFrom = new System.Windows.Forms.TextBox();
-            this.lblPriceTo = new System.Windows.Forms.Label();
-            this.txtPriceTo = new System.Windows.Forms.TextBox();
-            this.btnApplyFilter = new System.Windows.Forms.Button();
-            this.btnClearFilter = new System.Windows.Forms.Button();
-            this.btnCompare = new System.Windows.Forms.Button();
-            this.dataGridViewProducts = new System.Windows.Forms.DataGridView();
-            this.colSelect = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.colArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDetails = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.colAddToCart = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panelHeader.SuspendLayout();
-            this.panelFilters.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).BeginInit();
-            this.SuspendLayout();
+            panelHeader = new Panel();
+            btnClose = new Button();
+            lblTitle = new Label();
+            panelFilters = new Panel();
+            priceMax = new NumericUpDown();
+            priceMin = new NumericUpDown();
+            btnCompare = new Button();
+            btnClearFilter = new Button();
+            lblPriceTo = new Label();
+            lblPriceFrom = new Label();
+            txtSearch = new TextBox();
+            lblSearch = new Label();
+            cmbCategory = new ComboBox();
+            lblCategory = new Label();
+            lblFilters = new Label();
+            listView1 = new ListView();
+            button1 = new Button();
+            button2 = new Button();
+            panelHeader.SuspendLayout();
+            panelFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)priceMax).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)priceMin).BeginInit();
+            SuspendLayout();
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.panelHeader.Controls.Add(this.btnClose);
-            this.panelHeader.Controls.Add(this.lblTitle);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(1400, 70);
-            this.panelHeader.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 17);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(216, 37);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Каталог товарів";
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(btnClose);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(1400, 70);
+            panelHeader.TabIndex = 0;
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(1300, 15);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 40);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Закрити";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.BackColor = Color.FromArgb(192, 57, 43);
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(1300, 15);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(80, 40);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "Закрити";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(20, 17);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(229, 37);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Каталог товарів";
             // 
             // panelFilters
             // 
-            this.panelFilters.BackColor = System.Drawing.Color.White;
-            this.panelFilters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelFilters.Controls.Add(this.btnCompare);
-            this.panelFilters.Controls.Add(this.btnClearFilter);
-            this.panelFilters.Controls.Add(this.btnApplyFilter);
-            this.panelFilters.Controls.Add(this.txtPriceTo);
-            this.panelFilters.Controls.Add(this.lblPriceTo);
-            this.panelFilters.Controls.Add(this.txtPriceFrom);
-            this.panelFilters.Controls.Add(this.lblPriceFrom);
-            this.panelFilters.Controls.Add(this.txtSearch);
-            this.panelFilters.Controls.Add(this.lblSearch);
-            this.panelFilters.Controls.Add(this.cmbCategory);
-            this.panelFilters.Controls.Add(this.lblCategory);
-            this.panelFilters.Controls.Add(this.lblFilters);
-            this.panelFilters.Location = new System.Drawing.Point(20, 90);
-            this.panelFilters.Name = "panelFilters";
-            this.panelFilters.Size = new System.Drawing.Size(1360, 120);
-            this.panelFilters.TabIndex = 1;
+            panelFilters.BackColor = Color.White;
+            panelFilters.BorderStyle = BorderStyle.FixedSingle;
+            panelFilters.Controls.Add(priceMax);
+            panelFilters.Controls.Add(priceMin);
+            panelFilters.Controls.Add(btnCompare);
+            panelFilters.Controls.Add(btnClearFilter);
+            panelFilters.Controls.Add(lblPriceTo);
+            panelFilters.Controls.Add(lblPriceFrom);
+            panelFilters.Controls.Add(txtSearch);
+            panelFilters.Controls.Add(lblSearch);
+            panelFilters.Controls.Add(cmbCategory);
+            panelFilters.Controls.Add(lblCategory);
+            panelFilters.Controls.Add(lblFilters);
+            panelFilters.Location = new Point(20, 90);
+            panelFilters.Name = "panelFilters";
+            panelFilters.Size = new Size(1296, 120);
+            panelFilters.TabIndex = 1;
             // 
-            // lblFilters
+            // priceMax
             // 
-            this.lblFilters.AutoSize = true;
-            this.lblFilters.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblFilters.Location = new System.Drawing.Point(15, 10);
-            this.lblFilters.Name = "lblFilters";
-            this.lblFilters.Size = new System.Drawing.Size(157, 21);
-            this.lblFilters.TabIndex = 0;
-            this.lblFilters.Text = "Фільтри та пошук:";
+            priceMax.Increment = new decimal(new int[] { 100, 0, 0, 0 });
+            priceMax.Location = new Point(759, 72);
+            priceMax.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            priceMax.Name = "priceMax";
+            priceMax.Size = new Size(100, 23);
+            priceMax.TabIndex = 13;
+            priceMax.ThousandsSeparator = true;
+            priceMax.ValueChanged += PriceChanged;
             // 
-            // lblCategory
+            // priceMin
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblCategory.Location = new System.Drawing.Point(15, 45);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(72, 19);
-            this.lblCategory.TabIndex = 1;
-            this.lblCategory.Text = "Категорія:";
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(15, 70);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(200, 25);
-            this.cmbCategory.TabIndex = 2;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblSearch.Location = new System.Drawing.Point(235, 45);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(141, 19);
-            this.lblSearch.TabIndex = 3;
-            this.lblSearch.Text = "Пошук (назва/арт.):";
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtSearch.Location = new System.Drawing.Point(235, 70);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(300, 25);
-            this.txtSearch.TabIndex = 4;
-            // 
-            // lblPriceFrom
-            // 
-            this.lblPriceFrom.AutoSize = true;
-            this.lblPriceFrom.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPriceFrom.Location = new System.Drawing.Point(555, 45);
-            this.lblPriceFrom.Name = "lblPriceFrom";
-            this.lblPriceFrom.Size = new System.Drawing.Size(61, 19);
-            this.lblPriceFrom.TabIndex = 5;
-            this.lblPriceFrom.Text = "Ціна від:";
-            // 
-            // txtPriceFrom
-            // 
-            this.txtPriceFrom.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPriceFrom.Location = new System.Drawing.Point(555, 70);
-            this.txtPriceFrom.Name = "txtPriceFrom";
-            this.txtPriceFrom.Size = new System.Drawing.Size(100, 25);
-            this.txtPriceFrom.TabIndex = 6;
-            // 
-            // lblPriceTo
-            // 
-            this.lblPriceTo.AutoSize = true;
-            this.lblPriceTo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblPriceTo.Location = new System.Drawing.Point(675, 45);
-            this.lblPriceTo.Name = "lblPriceTo";
-            this.lblPriceTo.Size = new System.Drawing.Size(58, 19);
-            this.lblPriceTo.TabIndex = 7;
-            this.lblPriceTo.Text = "Ціна до:";
-            // 
-            // txtPriceTo
-            // 
-            this.txtPriceTo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtPriceTo.Location = new System.Drawing.Point(675, 70);
-            this.txtPriceTo.Name = "txtPriceTo";
-            this.txtPriceTo.Size = new System.Drawing.Size(100, 25);
-            this.txtPriceTo.TabIndex = 8;
-            // 
-            // btnApplyFilter
-            // 
-            this.btnApplyFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnApplyFilter.FlatAppearance.BorderSize = 0;
-            this.btnApplyFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnApplyFilter.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnApplyFilter.ForeColor = System.Drawing.Color.White;
-            this.btnApplyFilter.Location = new System.Drawing.Point(800, 60);
-            this.btnApplyFilter.Name = "btnApplyFilter";
-            this.btnApplyFilter.Size = new System.Drawing.Size(120, 40);
-            this.btnApplyFilter.TabIndex = 9;
-            this.btnApplyFilter.Text = "Застосувати";
-            this.btnApplyFilter.UseVisualStyleBackColor = false;
-            this.btnApplyFilter.Click += new System.EventHandler(this.btnApplyFilter_Click);
-            // 
-            // btnClearFilter
-            // 
-            this.btnClearFilter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
-            this.btnClearFilter.FlatAppearance.BorderSize = 0;
-            this.btnClearFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearFilter.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnClearFilter.ForeColor = System.Drawing.Color.White;
-            this.btnClearFilter.Location = new System.Drawing.Point(935, 60);
-            this.btnClearFilter.Name = "btnClearFilter";
-            this.btnClearFilter.Size = new System.Drawing.Size(120, 40);
-            this.btnClearFilter.TabIndex = 10;
-            this.btnClearFilter.Text = "Очистити";
-            this.btnClearFilter.UseVisualStyleBackColor = false;
-            this.btnClearFilter.Click += new System.EventHandler(this.btnClearFilter_Click);
+            priceMin.Increment = new decimal(new int[] { 100, 0, 0, 0 });
+            priceMin.Location = new Point(639, 72);
+            priceMin.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
+            priceMin.Name = "priceMin";
+            priceMin.Size = new Size(100, 23);
+            priceMin.TabIndex = 12;
+            priceMin.ThousandsSeparator = true;
+            priceMin.ValueChanged += PriceChanged;
             // 
             // btnCompare
             // 
-            this.btnCompare.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.btnCompare.FlatAppearance.BorderSize = 0;
-            this.btnCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCompare.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnCompare.ForeColor = System.Drawing.Color.White;
-            this.btnCompare.Location = new System.Drawing.Point(1200, 60);
-            this.btnCompare.Name = "btnCompare";
-            this.btnCompare.Size = new System.Drawing.Size(140, 40);
-            this.btnCompare.TabIndex = 11;
-            this.btnCompare.Text = "⚖️ Порівняти";
-            this.btnCompare.UseVisualStyleBackColor = false;
-            this.btnCompare.Click += new System.EventHandler(this.btnCompare_Click);
+            btnCompare.BackColor = Color.FromArgb(41, 128, 185);
+            btnCompare.FlatAppearance.BorderSize = 0;
+            btnCompare.FlatStyle = FlatStyle.Flat;
+            btnCompare.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCompare.ForeColor = Color.White;
+            btnCompare.Location = new Point(1136, 61);
+            btnCompare.Name = "btnCompare";
+            btnCompare.Size = new Size(140, 40);
+            btnCompare.TabIndex = 11;
+            btnCompare.Text = "⚖️ Порівняти";
+            btnCompare.UseVisualStyleBackColor = false;
+            btnCompare.Click += btnCompare_Click;
             // 
-            // dataGridViewProducts
+            // btnClearFilter
             // 
-            this.dataGridViewProducts.AllowUserToAddRows = false;
-            this.dataGridViewProducts.AllowUserToDeleteRows = false;
-            this.dataGridViewProducts.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colSelect,
-            this.colArticle,
-            this.colName,
-            this.colCategory,
-            this.colPrice,
-            this.colQuantity,
-            this.colDetails,
-            this.colAddToCart});
-            this.dataGridViewProducts.Location = new System.Drawing.Point(20, 230);
-            this.dataGridViewProducts.Name = "dataGridViewProducts";
-            this.dataGridViewProducts.RowTemplate.Height = 35;
-            this.dataGridViewProducts.Size = new System.Drawing.Size(1360, 520);
-            this.dataGridViewProducts.TabIndex = 2;
-            this.dataGridViewProducts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProducts_CellContentClick);
+            btnClearFilter.BackColor = Color.FromArgb(149, 165, 166);
+            btnClearFilter.FlatAppearance.BorderSize = 0;
+            btnClearFilter.FlatStyle = FlatStyle.Flat;
+            btnClearFilter.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnClearFilter.ForeColor = Color.White;
+            btnClearFilter.Location = new Point(896, 61);
+            btnClearFilter.Name = "btnClearFilter";
+            btnClearFilter.Size = new Size(120, 40);
+            btnClearFilter.TabIndex = 10;
+            btnClearFilter.Text = "Очистити";
+            btnClearFilter.UseVisualStyleBackColor = false;
+            btnClearFilter.Click += btnClearFilter_Click;
             // 
-            // colSelect
+            // lblPriceTo
             // 
-            this.colSelect.HeaderText = "✓";
-            this.colSelect.Name = "colSelect";
-            this.colSelect.Width = 40;
+            lblPriceTo.AutoSize = true;
+            lblPriceTo.Font = new Font("Segoe UI", 10F);
+            lblPriceTo.Location = new Point(759, 45);
+            lblPriceTo.Name = "lblPriceTo";
+            lblPriceTo.Size = new Size(60, 19);
+            lblPriceTo.TabIndex = 7;
+            lblPriceTo.Text = "Ціна до:";
             // 
-            // colArticle
+            // lblPriceFrom
             // 
-            this.colArticle.HeaderText = "Артикул";
-            this.colArticle.Name = "colArticle";
-            this.colArticle.ReadOnly = true;
-            this.colArticle.Width = 100;
+            lblPriceFrom.AutoSize = true;
+            lblPriceFrom.Font = new Font("Segoe UI", 10F);
+            lblPriceFrom.Location = new Point(639, 45);
+            lblPriceFrom.Name = "lblPriceFrom";
+            lblPriceFrom.Size = new Size(62, 19);
+            lblPriceFrom.TabIndex = 5;
+            lblPriceFrom.Text = "Ціна від:";
             // 
-            // colName
+            // txtSearch
             // 
-            this.colName.HeaderText = "Назва товару";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 350;
+            txtSearch.Font = new Font("Segoe UI", 10F);
+            txtSearch.Location = new Point(235, 70);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(380, 25);
+            txtSearch.TabIndex = 4;
+            txtSearch.TextChanged += FilterChanged;
             // 
-            // colCategory
+            // lblSearch
             // 
-            this.colCategory.HeaderText = "Категорія";
-            this.colCategory.Name = "colCategory";
-            this.colCategory.ReadOnly = true;
-            this.colCategory.Width = 150;
+            lblSearch.AutoSize = true;
+            lblSearch.Font = new Font("Segoe UI", 10F);
+            lblSearch.Location = new Point(235, 45);
+            lblSearch.Name = "lblSearch";
+            lblSearch.Size = new Size(131, 19);
+            lblSearch.TabIndex = 3;
+            lblSearch.Text = "Пошук (назва/арт.):";
             // 
-            // colPrice
+            // cmbCategory
             // 
-            this.colPrice.HeaderText = "Ціна (грн)";
-            this.colPrice.Name = "colPrice";
-            this.colPrice.ReadOnly = true;
-            this.colPrice.Width = 120;
+            cmbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategory.Font = new Font("Segoe UI", 10F);
+            cmbCategory.FormattingEnabled = true;
+            cmbCategory.Location = new Point(15, 70);
+            cmbCategory.Name = "cmbCategory";
+            cmbCategory.Size = new Size(200, 25);
+            cmbCategory.TabIndex = 2;
             // 
-            // colQuantity
+            // lblCategory
             // 
-            this.colQuantity.HeaderText = "На складі";
-            this.colQuantity.Name = "colQuantity";
-            this.colQuantity.ReadOnly = true;
-            this.colQuantity.Width = 100;
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Segoe UI", 10F);
+            lblCategory.Location = new Point(15, 45);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(71, 19);
+            lblCategory.TabIndex = 1;
+            lblCategory.Text = "Категорія:";
             // 
-            // colDetails
+            // lblFilters
             // 
-            this.colDetails.HeaderText = "Деталі";
-            this.colDetails.Name = "colDetails";
-            this.colDetails.Text = "Переглянути";
-            this.colDetails.UseColumnTextForButtonValue = true;
-            this.colDetails.Width = 120;
+            lblFilters.AutoSize = true;
+            lblFilters.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblFilters.Location = new Point(15, 10);
+            lblFilters.Name = "lblFilters";
+            lblFilters.Size = new Size(154, 21);
+            lblFilters.TabIndex = 0;
+            lblFilters.Text = "Фільтри та пошук:";
             // 
-            // colAddToCart
+            // listView1
             // 
-            this.colAddToCart.HeaderText = "Додати";
-            this.colAddToCart.Name = "colAddToCart";
-            this.colAddToCart.Text = "У кошик";
-            this.colAddToCart.UseColumnTextForButtonValue = true;
-            this.colAddToCart.Width = 120;
+            listView1.Location = new Point(20, 232);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(1360, 536);
+            listView1.TabIndex = 2;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.MouseDoubleClick += listView1_MouseDoubleClick;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(41, 128, 185);
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button1.ForeColor = SystemColors.ButtonFace;
+            button1.Location = new Point(1323, 90);
+            button1.Name = "button1";
+            button1.Size = new Size(57, 54);
+            button1.TabIndex = 3;
+            button1.Text = "Menu";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(41, 128, 185);
+            button2.BackgroundImageLayout = ImageLayout.Stretch;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            button2.ForeColor = SystemColors.ButtonFace;
+            button2.Location = new Point(1323, 156);
+            button2.Name = "button2";
+            button2.Size = new Size(57, 54);
+            button2.TabIndex = 4;
+            button2.Text = "List";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // CatalogForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(1400, 780);
-            this.Controls.Add(this.dataGridViewProducts);
-            this.Controls.Add(this.panelFilters);
-            this.Controls.Add(this.panelHeader);
-            this.Name = "CatalogForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Каталог товарів";
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
-            this.panelFilters.ResumeLayout(false);
-            this.panelFilters.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProducts)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(1400, 780);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Controls.Add(listView1);
+            Controls.Add(panelFilters);
+            Controls.Add(panelHeader);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "CatalogForm";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Каталог товарів";
+            Load += CatalogForm_Load;
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelFilters.ResumeLayout(false);
+            panelFilters.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)priceMax).EndInit();
+            ((System.ComponentModel.ISupportInitialize)priceMin).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -345,20 +297,13 @@
         private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label lblPriceFrom;
-        private System.Windows.Forms.TextBox txtPriceFrom;
         private System.Windows.Forms.Label lblPriceTo;
-        private System.Windows.Forms.TextBox txtPriceTo;
-        private System.Windows.Forms.Button btnApplyFilter;
         private System.Windows.Forms.Button btnClearFilter;
         private System.Windows.Forms.Button btnCompare;
-        private System.Windows.Forms.DataGridView dataGridViewProducts;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colSelect;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colArticle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colQuantity;
-        private System.Windows.Forms.DataGridViewButtonColumn colDetails;
-        private System.Windows.Forms.DataGridViewButtonColumn colAddToCart;
+        private ListView listView1;
+        private Button button1;
+        private Button button2;
+        private NumericUpDown priceMax;
+        private NumericUpDown priceMin;
     }
 }
