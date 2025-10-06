@@ -23,18 +23,18 @@ namespace Computer_Parts_Store.Forms
             comparisonGrid.Columns.Add("Product1", product1.Name);
             comparisonGrid.Columns.Add("Product2", product2.Name);
 
-            AddRow("Category", product1.Category?.Name, product2.Category?.Name);
-            AddRow("Article", product1.Article, product2.Article);
-            AddRow("Price", product1.Price.ToString("C"), product2.Price.ToString("C"));
-            AddRow("Description", product1.Description, product2.Description);
-            AddRow("Stock Quantity", product1.StockQuantity.ToString(), product2.StockQuantity.ToString());
-            AddRow("Manufacturer", product1.Manufacturer, product2.Manufacturer);
-            AddRow("Model", product1.Model, product2.Model);
-            AddRow("Specification", product1.Specification, product2.Specification);
-            AddRow("Color", product1.Color, product2.Color);
-            AddRow("Dimensions", product1.Dimensions, product2.Dimensions);
-            AddRow("Weight", product1.Weight?.ToString(), product2.Weight?.ToString());
-            AddRow("Warranty (Months)", product1.WarrantyMonths?.ToString(), product2.WarrantyMonths?.ToString());
+            AddRow("Категорія", product1.Category?.Name, product2.Category?.Name);
+            AddRow("Артикул", product1.Article, product2.Article);
+            AddRow("Ціна", product1.Price.ToString() + " грн", product2.Price.ToString() + " грн");
+            AddRow("Опис", product1.Description, product2.Description);
+            AddRow("Кількість", product1.StockQuantity.ToString(), product2.StockQuantity.ToString());
+            AddRow("Виробник", product1.Manufacturer, product2.Manufacturer);
+            AddRow("Модель", product1.Model, product2.Model);
+            AddRow("Специфікація", product1.Specification, product2.Specification);
+            AddRow("Колір", product1.Color, product2.Color);
+            AddRow("Розмір", product1.Dimensions, product2.Dimensions);
+            AddRow("Вага", product1.Weight?.ToString(), product2.Weight?.ToString());
+            AddRow("Гарантія", product1.WarrantyMonths?.ToString() + " місяців", product2.WarrantyMonths?.ToString() + " місяців");
 
             Highlight();
         }

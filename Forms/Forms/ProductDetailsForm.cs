@@ -1,41 +1,37 @@
 ﻿using System;
 using System.Windows.Forms;
+using Computer_Parts_Store.Models;
 
 namespace Computer_Parts_Store.Forms
 {
     public partial class ProductDetailsForm : Form
     {
-        public ProductDetailsForm()
+        private readonly Product product;
+        public ProductDetailsForm(Product p)
         {
             InitializeComponent();
+            product = p;
             LoadProductDetails();
         }
 
         private void LoadProductDetails()
         {
-            // Завантаження деталей товару з бази даних
-            // Приклад даних:
-            lblProductName.Text = "Intel Core i5-12400F";
-            lblArticleValue.Text = "ART001";
-            lblCategoryValue.Text = "Процесори";
-            lblPriceValue.Text = "8500.00 грн";
-            lblQuantityValue.Text = "15 шт.";
-
-            txtDescription.Text = "6-ядерний процесор Intel Core i5 12-го покоління з тактовою частотою до 4.4 ГГц. " +
-                                 "Підтримка DDR4/DDR5 пам'яті, PCIe 5.0. Ідеально підходить для ігор та повсякденних завдань. " +
-                                 "TDP: 65W. Сокет: LGA1700.\n\n" +
-                                 "Основні характеристики:\n" +
-                                 "- Кількість ядер: 6\n" +
-                                 "- Кількість потоків: 12\n" +
-                                 "- Базова частота: 2.5 ГГц\n" +
-                                 "- Максимальна частота: 4.4 ГГц\n" +
-                                 "- Кеш L3: 18 МБ\n" +
-                                 "- Технологічний процес: 10 нм\n" +
-                                 "- Інтегрована графіка: Немає\n" +
-                                 "- Підтримка пам'яті: DDR4-3200, DDR5-4800";
+            lblProductName.Text = product.Name;
+            lblArticleValue.Text = product.Article;
+            lblCategoryValue.Text = product.Category.Name;
+            lblPriceValue.Text = product.Price.ToString();
+            lblQuantityValue.Text = product.StockQuantity.ToString();
+            lblColorValue.Text = product.Color;
+            lblManufacturerValue.Text = product.Manufacturer;
+            lblModelValue.Text = product.Model;
+            lblSizeValue.Text = product.Dimensions;
+            lblWeightValue.Text = product.Weight?.ToString();
+            lblWarrantyValue.Text = product.WarrantyMonths?.ToString();
+            lblSpecValue.Text = product.Specification;
+            txtDescription.Text = product.Description;
 
             // Встановити максимальну кількість
-            numericQuantity.Maximum = 15;
+            numericQuantity.Maximum = product.StockQuantity;
             numericQuantity.Minimum = 1;
             numericQuantity.Value = 1;
         }
@@ -45,19 +41,19 @@ namespace Computer_Parts_Store.Forms
             int quantity = (int)numericQuantity.Value;
 
             // Перевірка наявності на складі
-            if (quantity > 15)
+            if (quantity > product.StockQuantity)
             {
                 MessageBox.Show("Недостатня кількість товару на складі!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             MessageBox.Show($"Додано {quantity} од. товару до кошика!", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
+            Close();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

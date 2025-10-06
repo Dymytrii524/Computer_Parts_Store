@@ -21,6 +21,20 @@
             btnClose = new Button();
             lblTitle = new Label();
             panelProductInfo = new Panel();
+            lblWarrantyValue = new Label();
+            label10 = new Label();
+            lblWeightValue = new Label();
+            label12 = new Label();
+            lblSizeValue = new Label();
+            label14 = new Label();
+            lblColorValue = new Label();
+            label2 = new Label();
+            lblSpecValue = new Label();
+            label6 = new Label();
+            lblModelValue = new Label();
+            label8 = new Label();
+            lblManufacturerValue = new Label();
+            label4 = new Label();
             btnAddToCart = new Button();
             lblSelectQuantity = new Label();
             numericQuantity = new NumericUpDown();
@@ -35,20 +49,6 @@
             lblArticleValue = new Label();
             lblArticle = new Label();
             lblProductName = new Label();
-            lblManufacturerValue = new Label();
-            label4 = new Label();
-            lblColorValue = new Label();
-            label2 = new Label();
-            lblSpecValue = new Label();
-            label6 = new Label();
-            lblModelValue = new Label();
-            label8 = new Label();
-            lblWarrantyValue = new Label();
-            label10 = new Label();
-            lblWeightValue = new Label();
-            label12 = new Label();
-            lblSizeValue = new Label();
-            label14 = new Label();
             panelHeader.SuspendLayout();
             panelProductInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericQuantity).BeginInit();
@@ -127,6 +127,153 @@
             panelProductInfo.Name = "panelProductInfo";
             panelProductInfo.Size = new Size(740, 688);
             panelProductInfo.TabIndex = 1;
+            // 
+            // lblWarrantyValue
+            // 
+            lblWarrantyValue.AutoSize = true;
+            lblWarrantyValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblWarrantyValue.Location = new Point(337, 148);
+            lblWarrantyValue.Name = "lblWarrantyValue";
+            lblWarrantyValue.Size = new Size(39, 20);
+            lblWarrantyValue.TabIndex = 27;
+            lblWarrantyValue.Text = "N/A";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11F);
+            label10.ForeColor = Color.Gray;
+            label10.Location = new Point(257, 148);
+            label10.Name = "label10";
+            label10.Size = new Size(71, 20);
+            label10.TabIndex = 26;
+            label10.Text = "Гарантія:";
+            // 
+            // lblWeightValue
+            // 
+            lblWeightValue.AutoSize = true;
+            lblWeightValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblWeightValue.Location = new Point(604, 111);
+            lblWeightValue.Name = "lblWeightValue";
+            lblWeightValue.Size = new Size(39, 20);
+            lblWeightValue.TabIndex = 25;
+            lblWeightValue.Text = "N/A";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11F);
+            label12.ForeColor = Color.Gray;
+            label12.Location = new Point(519, 111);
+            label12.Name = "label12";
+            label12.Size = new Size(43, 20);
+            label12.TabIndex = 24;
+            label12.Text = "Вага:";
+            // 
+            // lblSizeValue
+            // 
+            lblSizeValue.AutoSize = true;
+            lblSizeValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblSizeValue.Location = new Point(599, 75);
+            lblSizeValue.Name = "lblSizeValue";
+            lblSizeValue.Size = new Size(39, 20);
+            lblSizeValue.TabIndex = 23;
+            lblSizeValue.Text = "N/A";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 11F);
+            label14.ForeColor = Color.Gray;
+            label14.Location = new Point(519, 75);
+            label14.Name = "label14";
+            label14.Size = new Size(60, 20);
+            label14.TabIndex = 22;
+            label14.Text = "Розмір:";
+            // 
+            // lblColorValue
+            // 
+            lblColorValue.AutoSize = true;
+            lblColorValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblColorValue.Location = new Point(599, 148);
+            lblColorValue.Name = "lblColorValue";
+            lblColorValue.Size = new Size(39, 20);
+            lblColorValue.TabIndex = 21;
+            lblColorValue.Text = "N/A";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(519, 148);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 20);
+            label2.TabIndex = 20;
+            label2.Text = "Колір:";
+            // 
+            // lblSpecValue
+            // 
+            lblSpecValue.AutoSize = true;
+            lblSpecValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblSpecValue.Location = new Point(369, 111);
+            lblSpecValue.Name = "lblSpecValue";
+            lblSpecValue.Size = new Size(39, 20);
+            lblSpecValue.TabIndex = 19;
+            lblSpecValue.Text = "N/A";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11F);
+            label6.ForeColor = Color.Gray;
+            label6.Location = new Point(257, 111);
+            label6.Name = "label6";
+            label6.Size = new Size(106, 20);
+            label6.TabIndex = 18;
+            label6.Text = "Специфікація:";
+            // 
+            // lblModelValue
+            // 
+            lblModelValue.AutoSize = true;
+            lblModelValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblModelValue.Location = new Point(337, 75);
+            lblModelValue.Name = "lblModelValue";
+            lblModelValue.Size = new Size(39, 20);
+            lblModelValue.TabIndex = 17;
+            lblModelValue.Text = "N/A";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F);
+            label8.ForeColor = Color.Gray;
+            label8.Location = new Point(257, 75);
+            label8.Name = "label8";
+            label8.Size = new Size(66, 20);
+            label8.TabIndex = 16;
+            label8.Text = "Модель:";
+            // 
+            // lblManufacturerValue
+            // 
+            lblManufacturerValue.AutoSize = true;
+            lblManufacturerValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblManufacturerValue.Location = new Point(108, 148);
+            lblManufacturerValue.Name = "lblManufacturerValue";
+            lblManufacturerValue.Size = new Size(39, 20);
+            lblManufacturerValue.TabIndex = 15;
+            lblManufacturerValue.Text = "N/A";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11F);
+            label4.ForeColor = Color.Gray;
+            label4.Location = new Point(20, 148);
+            label4.Name = "label4";
+            label4.Size = new Size(82, 20);
+            label4.TabIndex = 14;
+            label4.Text = "Виробник:";
             // 
             // btnAddToCart
             // 
@@ -233,9 +380,9 @@
             lblCategoryValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblCategoryValue.Location = new Point(105, 111);
             lblCategoryValue.Name = "lblCategoryValue";
-            lblCategoryValue.Size = new Size(90, 20);
+            lblCategoryValue.Size = new Size(39, 20);
             lblCategoryValue.TabIndex = 4;
-            lblCategoryValue.Text = "Процесори";
+            lblCategoryValue.Text = "N/A";
             // 
             // lblCategory
             // 
@@ -254,9 +401,9 @@
             lblArticleValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             lblArticleValue.Location = new Point(94, 75);
             lblArticleValue.Name = "lblArticleValue";
-            lblArticleValue.Size = new Size(75, 20);
+            lblArticleValue.Size = new Size(39, 20);
             lblArticleValue.TabIndex = 2;
-            lblArticleValue.Text = "ART0001";
+            lblArticleValue.Text = "N/A";
             // 
             // lblArticle
             // 
@@ -277,153 +424,6 @@
             lblProductName.Size = new Size(700, 40);
             lblProductName.TabIndex = 0;
             lblProductName.Text = "Назва товару";
-            // 
-            // lblManufacturerValue
-            // 
-            lblManufacturerValue.AutoSize = true;
-            lblManufacturerValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblManufacturerValue.Location = new Point(108, 148);
-            lblManufacturerValue.Name = "lblManufacturerValue";
-            lblManufacturerValue.Size = new Size(75, 20);
-            lblManufacturerValue.TabIndex = 15;
-            lblManufacturerValue.Text = "ART0001";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 11F);
-            label4.ForeColor = Color.Gray;
-            label4.Location = new Point(20, 148);
-            label4.Name = "label4";
-            label4.Size = new Size(82, 20);
-            label4.TabIndex = 14;
-            label4.Text = "Виробник:";
-            // 
-            // lblColorValue
-            // 
-            lblColorValue.AutoSize = true;
-            lblColorValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblColorValue.Location = new Point(599, 148);
-            lblColorValue.Name = "lblColorValue";
-            lblColorValue.Size = new Size(75, 20);
-            lblColorValue.TabIndex = 21;
-            lblColorValue.Text = "ART0001";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11F);
-            label2.ForeColor = Color.Gray;
-            label2.Location = new Point(519, 148);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 20);
-            label2.TabIndex = 20;
-            label2.Text = "Колір:";
-            // 
-            // lblSpecValue
-            // 
-            lblSpecValue.AutoSize = true;
-            lblSpecValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblSpecValue.Location = new Point(369, 111);
-            lblSpecValue.Name = "lblSpecValue";
-            lblSpecValue.Size = new Size(90, 20);
-            lblSpecValue.TabIndex = 19;
-            lblSpecValue.Text = "Процесори";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 11F);
-            label6.ForeColor = Color.Gray;
-            label6.Location = new Point(257, 111);
-            label6.Name = "label6";
-            label6.Size = new Size(106, 20);
-            label6.TabIndex = 18;
-            label6.Text = "Специфікація:";
-            // 
-            // lblModelValue
-            // 
-            lblModelValue.AutoSize = true;
-            lblModelValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblModelValue.Location = new Point(337, 75);
-            lblModelValue.Name = "lblModelValue";
-            lblModelValue.Size = new Size(75, 20);
-            lblModelValue.TabIndex = 17;
-            lblModelValue.Text = "ART0001";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 11F);
-            label8.ForeColor = Color.Gray;
-            label8.Location = new Point(257, 75);
-            label8.Name = "label8";
-            label8.Size = new Size(66, 20);
-            label8.TabIndex = 16;
-            label8.Text = "Модель:";
-            // 
-            // lblWarrantyValue
-            // 
-            lblWarrantyValue.AutoSize = true;
-            lblWarrantyValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblWarrantyValue.Location = new Point(337, 148);
-            lblWarrantyValue.Name = "lblWarrantyValue";
-            lblWarrantyValue.Size = new Size(75, 20);
-            lblWarrantyValue.TabIndex = 27;
-            lblWarrantyValue.Text = "ART0001";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 11F);
-            label10.ForeColor = Color.Gray;
-            label10.Location = new Point(257, 148);
-            label10.Name = "label10";
-            label10.Size = new Size(71, 20);
-            label10.TabIndex = 26;
-            label10.Text = "Гарантія:";
-            // 
-            // lblWeightValue
-            // 
-            lblWeightValue.AutoSize = true;
-            lblWeightValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblWeightValue.Location = new Point(604, 111);
-            lblWeightValue.Name = "lblWeightValue";
-            lblWeightValue.Size = new Size(90, 20);
-            lblWeightValue.TabIndex = 25;
-            lblWeightValue.Text = "Процесори";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 11F);
-            label12.ForeColor = Color.Gray;
-            label12.Location = new Point(519, 111);
-            label12.Name = "label12";
-            label12.Size = new Size(43, 20);
-            label12.TabIndex = 24;
-            label12.Text = "Вага:";
-            // 
-            // lblSizeValue
-            // 
-            lblSizeValue.AutoSize = true;
-            lblSizeValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            lblSizeValue.Location = new Point(599, 75);
-            lblSizeValue.Name = "lblSizeValue";
-            lblSizeValue.Size = new Size(75, 20);
-            lblSizeValue.TabIndex = 23;
-            lblSizeValue.Text = "ART0001";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI", 11F);
-            label14.ForeColor = Color.Gray;
-            label14.Location = new Point(519, 75);
-            label14.Name = "label14";
-            label14.Size = new Size(60, 20);
-            label14.TabIndex = 22;
-            label14.Text = "Розмір:";
             // 
             // ProductDetailsForm
             // 
