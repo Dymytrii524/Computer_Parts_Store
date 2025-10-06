@@ -1,34 +1,72 @@
 ﻿using System;
 using System.Windows.Forms;
+using Computer_Parts_Store.Models;
 
 namespace Computer_Parts_Store.Forms
 {
     public partial class ProductCompareForm : Form
     {
-        public ProductCompareForm()
+        private readonly Product product1;
+        private readonly Product product2;
+
+        public ProductCompareForm(Product p1, Product p2)
         {
             InitializeComponent();
-            LoadComparisonData();
+            product1 = p1;
+            product2 = p2;
+            InitializeComparison();
         }
 
-        private void LoadComparisonData()
+        private void InitializeComparison()
         {
-            dataGridViewCompare.Rows.Add("Назва", "Intel Core i5-12400F", "AMD Ryzen 5 5600X", "Intel Core i7-12700K");
-            dataGridViewCompare.Rows.Add("Артикул", "ART001", "ART002", "ART003");
-            dataGridViewCompare.Rows.Add("Ціна", "8500 грн", "9200 грн", "15000 грн");
-            dataGridViewCompare.Rows.Add("Ядра/Потоки", "6/12", "6/12", "12/20");
-            dataGridViewCompare.Rows.Add("Базова частота", "2.5 ГГц", "3.7 ГГц", "3.6 ГГц");
-            dataGridViewCompare.Rows.Add("Макс. частота", "4.4 ГГц", "4.6 ГГц", "5.0 ГГц");
-            dataGridViewCompare.Rows.Add("Кеш", "18 МБ", "32 МБ", "25 МБ");
-            dataGridViewCompare.Rows.Add("TDP", "65W", "65W", "125W");
-            dataGridViewCompare.Rows.Add("Сокет", "LGA1700", "AM4", "LGA1700");
-            dataGridViewCompare.Rows.Add("Підтримка пам'яті", "DDR4/DDR5", "DDR4", "DDR4/DDR5");
-            dataGridViewCompare.Rows.Add("На складі", "15 шт.", "8 шт.", "5 шт.");
+            comparisonGrid.Columns.Add("Property", "Property");
+            comparisonGrid.Columns.Add("Product1", product1.Name);
+            comparisonGrid.Columns.Add("Product2", product2.Name);
+
+            AddRow("Category", product1.Category?.Name, product2.Category?.Name);
+            AddRow("Article", product1.Article, product2.Article);
+            AddRow("Price", product1.Price.ToString("C"), product2.Price.ToString("C"));
+            AddRow("Description", product1.Description, product2.Description);
+            AddRow("Stock Quantity", product1.StockQuantity.ToString(), product2.StockQuantity.ToString());
+            AddRow("Manufacturer", product1.Manufacturer, product2.Manufacturer);
+            AddRow("Model", product1.Model, product2.Model);
+            AddRow("Specification", product1.Specification, product2.Specification);
+            AddRow("Color", product1.Color, product2.Color);
+            AddRow("Dimensions", product1.Dimensions, product2.Dimensions);
+            AddRow("Weight", product1.Weight?.ToString(), product2.Weight?.ToString());
+            AddRow("Warranty (Months)", product1.WarrantyMonths?.ToString(), product2.WarrantyMonths?.ToString());
+
+            Highlight();
+        }
+
+        private void AddRow(string property, string value1, string value2)
+        {
+            int id = comparisonGrid.Rows.Add(property, value1 ?? "N/A", value2 ?? "N/A");
+
+            comparisonGrid.Rows[id].Tag = new { Value1 = value1, Value2 = value2 };
+        }
+
+        private void Highlight()
+        {
+            foreach (DataGridViewRow row in comparisonGrid.Rows)
+            {
+                if (row.Tag != null)
+                {
+                    var values = (dynamic)row.Tag;
+                    string value1 = values.Value1 ?? "";
+                    string value2 = values.Value2 ?? "";
+
+                    if (value1.Equals(value2, StringComparison.OrdinalIgnoreCase))
+                    {
+                        row.DefaultCellStyle.BackColor = Color.LightGreen;
+                    }
+                }
+            }
         }
 
         private void btnClose_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
