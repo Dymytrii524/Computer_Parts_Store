@@ -17,264 +17,431 @@
 
         private void InitializeComponent()
         {
-            this.panelHeader = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.panelProductInfo = new System.Windows.Forms.Panel();
-            this.lblProductName = new System.Windows.Forms.Label();
-            this.lblArticle = new System.Windows.Forms.Label();
-            this.lblArticleValue = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblCategoryValue = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblPriceValue = new System.Windows.Forms.Label();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.lblQuantityValue = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.RichTextBox();
-            this.numericQuantity = new System.Windows.Forms.NumericUpDown();
-            this.lblSelectQuantity = new System.Windows.Forms.Label();
-            this.btnAddToCart = new System.Windows.Forms.Button();
-            this.panelHeader.SuspendLayout();
-            this.panelProductInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).BeginInit();
-            this.SuspendLayout();
+            panelHeader = new Panel();
+            btnClose = new Button();
+            lblTitle = new Label();
+            panelProductInfo = new Panel();
+            btnAddToCart = new Button();
+            lblSelectQuantity = new Label();
+            numericQuantity = new NumericUpDown();
+            txtDescription = new RichTextBox();
+            lblDescription = new Label();
+            lblQuantityValue = new Label();
+            lblQuantity = new Label();
+            lblPriceValue = new Label();
+            lblPrice = new Label();
+            lblCategoryValue = new Label();
+            lblCategory = new Label();
+            lblArticleValue = new Label();
+            lblArticle = new Label();
+            lblProductName = new Label();
+            lblManufacturerValue = new Label();
+            label4 = new Label();
+            lblColorValue = new Label();
+            label2 = new Label();
+            lblSpecValue = new Label();
+            label6 = new Label();
+            lblModelValue = new Label();
+            label8 = new Label();
+            lblWarrantyValue = new Label();
+            label10 = new Label();
+            lblWeightValue = new Label();
+            label12 = new Label();
+            lblSizeValue = new Label();
+            label14 = new Label();
+            panelHeader.SuspendLayout();
+            panelProductInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericQuantity).BeginInit();
+            SuspendLayout();
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
-            this.panelHeader.Controls.Add(this.btnClose);
-            this.panelHeader.Controls.Add(this.lblTitle);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(800, 70);
-            this.panelHeader.TabIndex = 0;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 17);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(186, 37);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Деталі товару";
+            panelHeader.BackColor = Color.FromArgb(41, 128, 185);
+            panelHeader.Controls.Add(btnClose);
+            panelHeader.Controls.Add(lblTitle);
+            panelHeader.Dock = DockStyle.Top;
+            panelHeader.Location = new Point(0, 0);
+            panelHeader.Name = "panelHeader";
+            panelHeader.Size = new Size(800, 70);
+            panelHeader.TabIndex = 0;
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(57)))), ((int)(((byte)(43)))));
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(700, 15);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 40);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Закрити";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            btnClose.BackColor = Color.FromArgb(192, 57, 43);
+            btnClose.FlatAppearance.BorderSize = 0;
+            btnClose.FlatStyle = FlatStyle.Flat;
+            btnClose.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            btnClose.ForeColor = Color.White;
+            btnClose.Location = new Point(700, 15);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(80, 40);
+            btnClose.TabIndex = 1;
+            btnClose.Text = "Закрити";
+            btnClose.UseVisualStyleBackColor = false;
+            btnClose.Click += btnClose_Click;
+            // 
+            // lblTitle
+            // 
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.White;
+            lblTitle.Location = new Point(20, 17);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(203, 37);
+            lblTitle.TabIndex = 0;
+            lblTitle.Text = "Деталі товару";
             // 
             // panelProductInfo
             // 
-            this.panelProductInfo.BackColor = System.Drawing.Color.White;
-            this.panelProductInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelProductInfo.Controls.Add(this.btnAddToCart);
-            this.panelProductInfo.Controls.Add(this.lblSelectQuantity);
-            this.panelProductInfo.Controls.Add(this.numericQuantity);
-            this.panelProductInfo.Controls.Add(this.txtDescription);
-            this.panelProductInfo.Controls.Add(this.lblDescription);
-            this.panelProductInfo.Controls.Add(this.lblQuantityValue);
-            this.panelProductInfo.Controls.Add(this.lblQuantity);
-            this.panelProductInfo.Controls.Add(this.lblPriceValue);
-            this.panelProductInfo.Controls.Add(this.lblPrice);
-            this.panelProductInfo.Controls.Add(this.lblCategoryValue);
-            this.panelProductInfo.Controls.Add(this.lblCategory);
-            this.panelProductInfo.Controls.Add(this.lblArticleValue);
-            this.panelProductInfo.Controls.Add(this.lblArticle);
-            this.panelProductInfo.Controls.Add(this.lblProductName);
-            this.panelProductInfo.Location = new System.Drawing.Point(30, 100);
-            this.panelProductInfo.Name = "panelProductInfo";
-            this.panelProductInfo.Size = new System.Drawing.Size(740, 650);
-            this.panelProductInfo.TabIndex = 1;
-            // 
-            // lblProductName
-            // 
-            this.lblProductName.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lblProductName.Location = new System.Drawing.Point(20, 20);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(700, 40);
-            this.lblProductName.TabIndex = 0;
-            this.lblProductName.Text = "Назва товару";
-            // 
-            // lblArticle
-            // 
-            this.lblArticle.AutoSize = true;
-            this.lblArticle.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblArticle.ForeColor = System.Drawing.Color.Gray;
-            this.lblArticle.Location = new System.Drawing.Point(20, 75);
-            this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(71, 20);
-            this.lblArticle.TabIndex = 1;
-            this.lblArticle.Text = "Артикул:";
-            // 
-            // lblArticleValue
-            // 
-            this.lblArticleValue.AutoSize = true;
-            this.lblArticleValue.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblArticleValue.Location = new System.Drawing.Point(100, 75);
-            this.lblArticleValue.Name = "lblArticleValue";
-            this.lblArticleValue.Size = new System.Drawing.Size(72, 20);
-            this.lblArticleValue.TabIndex = 2;
-            this.lblArticleValue.Text = "ART0001";
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblCategory.ForeColor = System.Drawing.Color.Gray;
-            this.lblCategory.Location = new System.Drawing.Point(20, 105);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(79, 20);
-            this.lblCategory.TabIndex = 3;
-            this.lblCategory.Text = "Категорія:";
-            // 
-            // lblCategoryValue
-            // 
-            this.lblCategoryValue.AutoSize = true;
-            this.lblCategoryValue.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblCategoryValue.Location = new System.Drawing.Point(110, 105);
-            this.lblCategoryValue.Name = "lblCategoryValue";
-            this.lblCategoryValue.Size = new System.Drawing.Size(87, 20);
-            this.lblCategoryValue.TabIndex = 4;
-            this.lblCategoryValue.Text = "Процесори";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.lblPrice.ForeColor = System.Drawing.Color.Gray;
-            this.lblPrice.Location = new System.Drawing.Point(20, 150);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(51, 25);
-            this.lblPrice.TabIndex = 5;
-            this.lblPrice.Text = "Ціна:";
-            // 
-            // lblPriceValue
-            // 
-            this.lblPriceValue.AutoSize = true;
-            this.lblPriceValue.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.lblPriceValue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.lblPriceValue.Location = new System.Drawing.Point(20, 180);
-            this.lblPriceValue.Name = "lblPriceValue";
-            this.lblPriceValue.Size = new System.Drawing.Size(160, 37);
-            this.lblPriceValue.TabIndex = 6;
-            this.lblPriceValue.Text = "0.00 грн";
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblQuantity.ForeColor = System.Drawing.Color.Gray;
-            this.lblQuantity.Location = new System.Drawing.Point(20, 235);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(78, 20);
-            this.lblQuantity.TabIndex = 7;
-            this.lblQuantity.Text = "На складі:";
-            // 
-            // lblQuantityValue
-            // 
-            this.lblQuantityValue.AutoSize = true;
-            this.lblQuantityValue.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblQuantityValue.Location = new System.Drawing.Point(110, 235);
-            this.lblQuantityValue.Name = "lblQuantityValue";
-            this.lblQuantityValue.Size = new System.Drawing.Size(53, 20);
-            this.lblQuantityValue.TabIndex = 8;
-            this.lblQuantityValue.Text = "0 шт.";
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDescription.Location = new System.Drawing.Point(20, 280);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(52, 21);
-            this.lblDescription.TabIndex = 9;
-            this.lblDescription.Text = "Опис:";
-            // 
-            // txtDescription
-            // 
-            this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtDescription.Location = new System.Drawing.Point(20, 310);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(700, 200);
-            this.txtDescription.TabIndex = 10;
-            this.txtDescription.Text = "";
-            // 
-            // numericQuantity
-            // 
-            this.numericQuantity.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.numericQuantity.Location = new System.Drawing.Point(170, 530);
-            this.numericQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericQuantity.Name = "numericQuantity";
-            this.numericQuantity.Size = new System.Drawing.Size(100, 29);
-            this.numericQuantity.TabIndex = 11;
-            this.numericQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // lblSelectQuantity
-            // 
-            this.lblSelectQuantity.AutoSize = true;
-            this.lblSelectQuantity.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.lblSelectQuantity.Location = new System.Drawing.Point(20, 535);
-            this.lblSelectQuantity.Name = "lblSelectQuantity";
-            this.lblSelectQuantity.Size = new System.Drawing.Size(144, 20);
-            this.lblSelectQuantity.TabIndex = 12;
-            this.lblSelectQuantity.Text = "Виберіть кількість:";
+            panelProductInfo.BackColor = Color.White;
+            panelProductInfo.BorderStyle = BorderStyle.FixedSingle;
+            panelProductInfo.Controls.Add(lblWarrantyValue);
+            panelProductInfo.Controls.Add(label10);
+            panelProductInfo.Controls.Add(lblWeightValue);
+            panelProductInfo.Controls.Add(label12);
+            panelProductInfo.Controls.Add(lblSizeValue);
+            panelProductInfo.Controls.Add(label14);
+            panelProductInfo.Controls.Add(lblColorValue);
+            panelProductInfo.Controls.Add(label2);
+            panelProductInfo.Controls.Add(lblSpecValue);
+            panelProductInfo.Controls.Add(label6);
+            panelProductInfo.Controls.Add(lblModelValue);
+            panelProductInfo.Controls.Add(label8);
+            panelProductInfo.Controls.Add(lblManufacturerValue);
+            panelProductInfo.Controls.Add(label4);
+            panelProductInfo.Controls.Add(btnAddToCart);
+            panelProductInfo.Controls.Add(lblSelectQuantity);
+            panelProductInfo.Controls.Add(numericQuantity);
+            panelProductInfo.Controls.Add(txtDescription);
+            panelProductInfo.Controls.Add(lblDescription);
+            panelProductInfo.Controls.Add(lblQuantityValue);
+            panelProductInfo.Controls.Add(lblQuantity);
+            panelProductInfo.Controls.Add(lblPriceValue);
+            panelProductInfo.Controls.Add(lblPrice);
+            panelProductInfo.Controls.Add(lblCategoryValue);
+            panelProductInfo.Controls.Add(lblCategory);
+            panelProductInfo.Controls.Add(lblArticleValue);
+            panelProductInfo.Controls.Add(lblArticle);
+            panelProductInfo.Controls.Add(lblProductName);
+            panelProductInfo.Location = new Point(30, 100);
+            panelProductInfo.Name = "panelProductInfo";
+            panelProductInfo.Size = new Size(740, 688);
+            panelProductInfo.TabIndex = 1;
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(174)))), ((int)(((byte)(96)))));
-            this.btnAddToCart.FlatAppearance.BorderSize = 0;
-            this.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddToCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAddToCart.ForeColor = System.Drawing.Color.White;
-            this.btnAddToCart.Location = new System.Drawing.Point(20, 580);
-            this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(700, 50);
-            this.btnAddToCart.TabIndex = 13;
-            this.btnAddToCart.Text = "🛒 Додати до кошика";
-            this.btnAddToCart.UseVisualStyleBackColor = false;
-            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
+            btnAddToCart.BackColor = Color.FromArgb(39, 174, 96);
+            btnAddToCart.FlatAppearance.BorderSize = 0;
+            btnAddToCart.FlatStyle = FlatStyle.Flat;
+            btnAddToCart.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnAddToCart.ForeColor = Color.White;
+            btnAddToCart.Location = new Point(20, 621);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new Size(700, 50);
+            btnAddToCart.TabIndex = 13;
+            btnAddToCart.Text = "\U0001f6d2 Додати до кошика";
+            btnAddToCart.UseVisualStyleBackColor = false;
+            btnAddToCart.Click += btnAddToCart_Click;
+            // 
+            // lblSelectQuantity
+            // 
+            lblSelectQuantity.AutoSize = true;
+            lblSelectQuantity.Font = new Font("Segoe UI", 11F);
+            lblSelectQuantity.Location = new Point(20, 576);
+            lblSelectQuantity.Name = "lblSelectQuantity";
+            lblSelectQuantity.Size = new Size(137, 20);
+            lblSelectQuantity.TabIndex = 12;
+            lblSelectQuantity.Text = "Виберіть кількість:";
+            // 
+            // numericQuantity
+            // 
+            numericQuantity.Font = new Font("Segoe UI", 12F);
+            numericQuantity.Location = new Point(170, 571);
+            numericQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            numericQuantity.Name = "numericQuantity";
+            numericQuantity.Size = new Size(100, 29);
+            numericQuantity.TabIndex = 11;
+            numericQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // txtDescription
+            // 
+            txtDescription.BorderStyle = BorderStyle.FixedSingle;
+            txtDescription.Font = new Font("Segoe UI", 10F);
+            txtDescription.Location = new Point(20, 351);
+            txtDescription.Name = "txtDescription";
+            txtDescription.ReadOnly = true;
+            txtDescription.Size = new Size(700, 200);
+            txtDescription.TabIndex = 10;
+            txtDescription.Text = "";
+            // 
+            // lblDescription
+            // 
+            lblDescription.AutoSize = true;
+            lblDescription.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            lblDescription.Location = new Point(20, 321);
+            lblDescription.Name = "lblDescription";
+            lblDescription.Size = new Size(54, 21);
+            lblDescription.TabIndex = 9;
+            lblDescription.Text = "Опис:";
+            // 
+            // lblQuantityValue
+            // 
+            lblQuantityValue.AutoSize = true;
+            lblQuantityValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblQuantityValue.Location = new Point(110, 276);
+            lblQuantityValue.Name = "lblQuantityValue";
+            lblQuantityValue.Size = new Size(46, 20);
+            lblQuantityValue.TabIndex = 8;
+            lblQuantityValue.Text = "0 шт.";
+            // 
+            // lblQuantity
+            // 
+            lblQuantity.AutoSize = true;
+            lblQuantity.Font = new Font("Segoe UI", 11F);
+            lblQuantity.ForeColor = Color.Gray;
+            lblQuantity.Location = new Point(20, 276);
+            lblQuantity.Name = "lblQuantity";
+            lblQuantity.Size = new Size(77, 20);
+            lblQuantity.TabIndex = 7;
+            lblQuantity.Text = "На складі:";
+            // 
+            // lblPriceValue
+            // 
+            lblPriceValue.AutoSize = true;
+            lblPriceValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblPriceValue.ForeColor = Color.FromArgb(39, 174, 96);
+            lblPriceValue.Location = new Point(20, 221);
+            lblPriceValue.Name = "lblPriceValue";
+            lblPriceValue.Size = new Size(124, 37);
+            lblPriceValue.TabIndex = 6;
+            lblPriceValue.Text = "0.00 грн";
+            // 
+            // lblPrice
+            // 
+            lblPrice.AutoSize = true;
+            lblPrice.Font = new Font("Segoe UI", 14F);
+            lblPrice.ForeColor = Color.Gray;
+            lblPrice.Location = new Point(20, 191);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(56, 25);
+            lblPrice.TabIndex = 5;
+            lblPrice.Text = "Ціна:";
+            // 
+            // lblCategoryValue
+            // 
+            lblCategoryValue.AutoSize = true;
+            lblCategoryValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblCategoryValue.Location = new Point(105, 111);
+            lblCategoryValue.Name = "lblCategoryValue";
+            lblCategoryValue.Size = new Size(90, 20);
+            lblCategoryValue.TabIndex = 4;
+            lblCategoryValue.Text = "Процесори";
+            // 
+            // lblCategory
+            // 
+            lblCategory.AutoSize = true;
+            lblCategory.Font = new Font("Segoe UI", 11F);
+            lblCategory.ForeColor = Color.Gray;
+            lblCategory.Location = new Point(20, 111);
+            lblCategory.Name = "lblCategory";
+            lblCategory.Size = new Size(79, 20);
+            lblCategory.TabIndex = 3;
+            lblCategory.Text = "Категорія:";
+            // 
+            // lblArticleValue
+            // 
+            lblArticleValue.AutoSize = true;
+            lblArticleValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblArticleValue.Location = new Point(94, 75);
+            lblArticleValue.Name = "lblArticleValue";
+            lblArticleValue.Size = new Size(75, 20);
+            lblArticleValue.TabIndex = 2;
+            lblArticleValue.Text = "ART0001";
+            // 
+            // lblArticle
+            // 
+            lblArticle.AutoSize = true;
+            lblArticle.Font = new Font("Segoe UI", 11F);
+            lblArticle.ForeColor = Color.Gray;
+            lblArticle.Location = new Point(20, 75);
+            lblArticle.Name = "lblArticle";
+            lblArticle.Size = new Size(68, 20);
+            lblArticle.TabIndex = 1;
+            lblArticle.Text = "Артикул:";
+            // 
+            // lblProductName
+            // 
+            lblProductName.Font = new Font("Segoe UI", 18F, FontStyle.Bold);
+            lblProductName.Location = new Point(20, 20);
+            lblProductName.Name = "lblProductName";
+            lblProductName.Size = new Size(700, 40);
+            lblProductName.TabIndex = 0;
+            lblProductName.Text = "Назва товару";
+            // 
+            // lblManufacturerValue
+            // 
+            lblManufacturerValue.AutoSize = true;
+            lblManufacturerValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblManufacturerValue.Location = new Point(108, 148);
+            lblManufacturerValue.Name = "lblManufacturerValue";
+            lblManufacturerValue.Size = new Size(75, 20);
+            lblManufacturerValue.TabIndex = 15;
+            lblManufacturerValue.Text = "ART0001";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 11F);
+            label4.ForeColor = Color.Gray;
+            label4.Location = new Point(20, 148);
+            label4.Name = "label4";
+            label4.Size = new Size(82, 20);
+            label4.TabIndex = 14;
+            label4.Text = "Виробник:";
+            // 
+            // lblColorValue
+            // 
+            lblColorValue.AutoSize = true;
+            lblColorValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblColorValue.Location = new Point(599, 148);
+            lblColorValue.Name = "lblColorValue";
+            lblColorValue.Size = new Size(75, 20);
+            lblColorValue.TabIndex = 21;
+            lblColorValue.Text = "ART0001";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11F);
+            label2.ForeColor = Color.Gray;
+            label2.Location = new Point(519, 148);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 20);
+            label2.TabIndex = 20;
+            label2.Text = "Колір:";
+            // 
+            // lblSpecValue
+            // 
+            lblSpecValue.AutoSize = true;
+            lblSpecValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblSpecValue.Location = new Point(369, 111);
+            lblSpecValue.Name = "lblSpecValue";
+            lblSpecValue.Size = new Size(90, 20);
+            lblSpecValue.TabIndex = 19;
+            lblSpecValue.Text = "Процесори";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11F);
+            label6.ForeColor = Color.Gray;
+            label6.Location = new Point(257, 111);
+            label6.Name = "label6";
+            label6.Size = new Size(106, 20);
+            label6.TabIndex = 18;
+            label6.Text = "Специфікація:";
+            // 
+            // lblModelValue
+            // 
+            lblModelValue.AutoSize = true;
+            lblModelValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblModelValue.Location = new Point(337, 75);
+            lblModelValue.Name = "lblModelValue";
+            lblModelValue.Size = new Size(75, 20);
+            lblModelValue.TabIndex = 17;
+            lblModelValue.Text = "ART0001";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 11F);
+            label8.ForeColor = Color.Gray;
+            label8.Location = new Point(257, 75);
+            label8.Name = "label8";
+            label8.Size = new Size(66, 20);
+            label8.TabIndex = 16;
+            label8.Text = "Модель:";
+            // 
+            // lblWarrantyValue
+            // 
+            lblWarrantyValue.AutoSize = true;
+            lblWarrantyValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblWarrantyValue.Location = new Point(337, 148);
+            lblWarrantyValue.Name = "lblWarrantyValue";
+            lblWarrantyValue.Size = new Size(75, 20);
+            lblWarrantyValue.TabIndex = 27;
+            lblWarrantyValue.Text = "ART0001";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Segoe UI", 11F);
+            label10.ForeColor = Color.Gray;
+            label10.Location = new Point(257, 148);
+            label10.Name = "label10";
+            label10.Size = new Size(71, 20);
+            label10.TabIndex = 26;
+            label10.Text = "Гарантія:";
+            // 
+            // lblWeightValue
+            // 
+            lblWeightValue.AutoSize = true;
+            lblWeightValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblWeightValue.Location = new Point(604, 111);
+            lblWeightValue.Name = "lblWeightValue";
+            lblWeightValue.Size = new Size(90, 20);
+            lblWeightValue.TabIndex = 25;
+            lblWeightValue.Text = "Процесори";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 11F);
+            label12.ForeColor = Color.Gray;
+            label12.Location = new Point(519, 111);
+            label12.Name = "label12";
+            label12.Size = new Size(43, 20);
+            label12.TabIndex = 24;
+            label12.Text = "Вага:";
+            // 
+            // lblSizeValue
+            // 
+            lblSizeValue.AutoSize = true;
+            lblSizeValue.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            lblSizeValue.Location = new Point(599, 75);
+            lblSizeValue.Name = "lblSizeValue";
+            lblSizeValue.Size = new Size(75, 20);
+            lblSizeValue.TabIndex = 23;
+            lblSizeValue.Text = "ART0001";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("Segoe UI", 11F);
+            label14.ForeColor = Color.Gray;
+            label14.Location = new Point(519, 75);
+            label14.Name = "label14";
+            label14.Size = new Size(60, 20);
+            label14.TabIndex = 22;
+            label14.Text = "Розмір:";
             // 
             // ProductDetailsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(800, 780);
-            this.Controls.Add(this.panelProductInfo);
-            this.Controls.Add(this.panelHeader);
-            this.Name = "ProductDetailsForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Деталі товару";
-            this.panelHeader.ResumeLayout(false);
-            this.panelHeader.PerformLayout();
-            this.panelProductInfo.ResumeLayout(false);
-            this.panelProductInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericQuantity)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 240, 241);
+            ClientSize = new Size(800, 800);
+            Controls.Add(panelProductInfo);
+            Controls.Add(panelHeader);
+            Name = "ProductDetailsForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Деталі товару";
+            panelHeader.ResumeLayout(false);
+            panelHeader.PerformLayout();
+            panelProductInfo.ResumeLayout(false);
+            panelProductInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericQuantity).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -297,5 +464,19 @@
         private System.Windows.Forms.NumericUpDown numericQuantity;
         private System.Windows.Forms.Label lblSelectQuantity;
         private System.Windows.Forms.Button btnAddToCart;
+        private Label lblManufacturerValue;
+        private Label label4;
+        private Label lblWarrantyValue;
+        private Label label10;
+        private Label lblWeightValue;
+        private Label label12;
+        private Label lblSizeValue;
+        private Label label14;
+        private Label lblColorValue;
+        private Label label2;
+        private Label lblSpecValue;
+        private Label label6;
+        private Label lblModelValue;
+        private Label label8;
     }
 }
