@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Computer_Parts_Store.Models;
+using Computer_Parts_Store.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Computer_Parts_Store.Forms
 {
@@ -9,30 +13,54 @@ namespace Computer_Parts_Store.Forms
         {
             InitializeComponent();
             LoadPrebuiltComputers();
+            LoadImages();
         }
 
         private void LoadPrebuiltComputers()
         {
-            dataGridViewPrebuilt.Rows.Add(
-                "Офісний ПК",
-                "Intel Core i3, 8GB RAM, 256GB SSD",
-                "15000.00",
-                "В наявності"
-            );
+            try
+            {
+                using (var db = new Computer_Parts_StoreContext())
+                {
+                    var prebuiltPCs = db.PrebuiltComputers.Include(_ => _.Products);
+                    foreach (var pc in prebuiltPCs)
+                    {
+                        dataGridViewPrebuilt.Rows.Add(
+                            pc.Name,
+                            pc.Description,
+                            pc.TotalPrice,
+                            "В наявності"
+                        );
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LoadImages()
+        {
+            ImageList imageList = new ImageList();
+            imageList.ImageSize = new Size(64, 64);
 
-            dataGridViewPrebuilt.Rows.Add(
-                "Ігровий ПК Стартовий",
-                "AMD Ryzen 5, RTX 3060, 16GB RAM, 512GB SSD",
-                "35000.00",
-                "В наявності"
-            );
+            string imagePath = Path.Combine(Application.StartupPath, "IMG", "0.png");
+            if (File.Exists(imagePath))
+            {
+                imageList.Images.Add(Image.FromFile(imagePath));
+            }
+            else
+            {
+                Bitmap placeholder = new Bitmap(64, 64);
+                using (Graphics g = Graphics.FromImage(placeholder))
+                {
+                    g.Clear(Color.SteelBlue);
+                    g.DrawRectangle(Pens.Black, 0, 0, 63, 63);
+                }
+                imageList.Images.Add(placeholder);
+            }
 
-            dataGridViewPrebuilt.Rows.Add(
-                "Ігровий ПК Преміум",
-                "Intel Core i7, RTX 4070, 32GB RAM, 1TB SSD",
-                "65000.00",
-                "В наявності"
-            );
+
         }
 
         private void dataGridViewPrebuilt_CellContentClick(object? sender, DataGridViewCellEventArgs e)
@@ -52,7 +80,7 @@ namespace Computer_Parts_Store.Forms
 
         private void btnClose_Click(object? sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }
