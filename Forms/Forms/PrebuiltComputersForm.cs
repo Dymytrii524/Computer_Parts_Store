@@ -59,8 +59,6 @@ namespace Computer_Parts_Store.Forms
                 }
                 imageList.Images.Add(placeholder);
             }
-
-
         }
 
         private void dataGridViewPrebuilt_CellContentClick(object? sender, DataGridViewCellEventArgs e)
@@ -69,8 +67,13 @@ namespace Computer_Parts_Store.Forms
 
             if (e.ColumnIndex == dataGridViewPrebuilt.Columns["colViewDetails"]?.Index)
             {
-                string? pcName = dataGridViewPrebuilt.Rows[e.RowIndex].Cells["colName"].Value?.ToString();
-                MessageBox.Show($"Деталі конфігурації: {pcName}", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                using (var db = new Computer_Parts_StoreContext())
+                {
+                    var prebuiltPCs = db.PrebuiltComputers.Include(_ => _.Products).ToList();
+                    var selectedPC = prebuiltPCs[e.RowIndex];
+                    var EditForm = new PCBuilderForm(selectedPC);
+                    EditForm.ShowDialog();            
+                }
             }
             else if (e.ColumnIndex == dataGridViewPrebuilt.Columns["colAddToCart"]?.Index)
             {

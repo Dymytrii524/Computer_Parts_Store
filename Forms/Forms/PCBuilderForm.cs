@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Windows.Forms;
+using Computer_Parts_Store.Models;
+using Computer_Parts_Store.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Computer_Parts_Store.Forms
 {
     public partial class PCBuilderForm : Form
     {
         private decimal totalPrice = 0;
+        private readonly PrebuiltComputer PC;
 
         public PCBuilderForm()
         {
             InitializeComponent();
             LoadComponents();
+        }
+
+        public PCBuilderForm(PrebuiltComputer pc)
+        {
+            PC = pc;
+            totalPrice = pc.TotalPrice;
+            InitializeComponent();
+            LoadComponents(PC);
         }
 
         private void LoadComponents()
@@ -25,6 +37,44 @@ namespace Computer_Parts_Store.Forms
             cmbCase.Items.Add("-- Оберіть корпус --");
             cmbCooling.Items.Add("-- Оберіть систему охолодження --");
 
+            using (var db = new Computer_Parts_StoreContext())
+            {
+                var products = db.Products.Include(_ => _.Category).ToList();
+                foreach (var product in products)
+                {
+                    switch (product.Category.Name)
+                    {
+                        case "Процесори (CPU)":
+                            cmbCPU.Items.Add($"{product.Name}");
+                            break;
+                        case "Відеокарти (GPU)":
+                            cmbGPU.Items.Add($"{product.Name}");
+                            break;
+                        case "Материнські плати":
+                            cmbMotherboard.Items.Add($"{product.Name}");
+                            break;
+                        case "Оперативна пам'ять (RAM)":
+                            cmbRAM.Items.Add($"{product.Name}");
+                            break;
+                        case "HDD накопичувачі":
+                        case "SSD накопичувачі":
+                            cmbStorage.Items.Add($"{product.Name}");
+                            break;
+                        case "Блоки живлення (PSU)":
+                            cmbPSU.Items.Add($"{product.Name}");
+                            break;
+                        case "Корпуси":
+                            cmbCase.Items.Add($"{product.Name}");
+                            break;
+                        case "Повітряне охолодження":
+                        case "Рідинне охолодження":
+                            cmbCooling.Items.Add($"{product.Name}");
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
             cmbCPU.SelectedIndex = 0;
             cmbGPU.SelectedIndex = 0;
             cmbMotherboard.SelectedIndex = 0;
@@ -33,6 +83,51 @@ namespace Computer_Parts_Store.Forms
             cmbPSU.SelectedIndex = 0;
             cmbCase.SelectedIndex = 0;
             cmbCooling.SelectedIndex = 0;
+        }
+        private void LoadComponents(PrebuiltComputer pc)
+        {
+            LoadComponents();
+
+            using (var db = new Computer_Parts_StoreContext())
+            {
+                var products = db.PrebuiltComputers.Include(_ => _.Products)
+                    .ThenInclude(p => p.Category)
+                    .FirstOrDefault(_ => _.Id == pc.Id)?.Products;
+                foreach (var product in products)
+                {
+                    switch (product.Category.Name)
+                    {
+                        case "Процесори (CPU)":
+                            cmbCPU.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Відеокарти (GPU)":
+                            cmbGPU.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Материнські плати":
+                            cmbMotherboard.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Оперативна пам'ять (RAM)":
+                            cmbRAM.SelectedItem = $"{product.Name}";
+                            break;
+                        case "HDD накопичувачі":
+                        case "SSD накопичувачі":
+                            cmbStorage.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Блоки живлення (PSU)":
+                            cmbPSU.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Корпуси":
+                            cmbCase.SelectedItem = $"{product.Name}";
+                            break;
+                        case "Повітряне охолодження":
+                        case "Рідинне охолодження":
+                            cmbCooling.SelectedItem = $"{product.Name}";
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
         }
 
         private void Component_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,9 +138,14 @@ namespace Computer_Parts_Store.Forms
         private void UpdateBuildSummary()
         {
             txtBuildSummary.Clear();
-            totalPrice = 0;
 
             txtBuildSummary.AppendText("=== КОНФІГУРАЦІЯ ПК ===\n\n");
+
+            if (PC.Products != null && PC.Products.Count > 0)
+            {
+                txtBuildSummary.AppendText($"Збірка: {PC.Name}\n");
+                txtBuildSummary.AppendText($"Опис: {PC.Description}\n\n");
+            }
 
             if (cmbCPU.SelectedIndex > 0)
                 txtBuildSummary.AppendText($"Процесор: {cmbCPU.Text}\n");
